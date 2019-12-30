@@ -1,4 +1,4 @@
-### GETTING STARTED WITH DOCKER ###
+## GETTING STARTED WITH DOCKER ###
 Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quicklyBy taking advantage of Docker’s methodologies for shipping, testing, and deploying code quickly, you can significantly reduce the delay between writing code and running it in production.
 
 - Containerization : 
@@ -16,7 +16,7 @@ Docker is an open platform for developing, shipping, and running applications. D
     - sVM on the other hand runs on guest OS , have access to host resources via an hypervisor. consume lot of overhead . 
 
 
-- conatinerized process gives us the opportunity of moving and scaling our process around cloud and datacentres .  as we scale our applications up, we’ll want some tooling to help automate the maintenance of those applications, able to replace failed containers automatically and manage the rollout of updates and reconfigurations of those containers during their lifecycle. tools to manage these things are called **ORCHESTRATORS** and the most common examples are kubernetes and docker swarm . 
+- conatinorized process gives us the opportunity of moving and scaling our process around cloud and datacentres .  as we scale our applications up, we’ll want some tooling to help automate the maintenance of those applications, able to replace failed containers automatically and manage the rollout of updates and reconfigurations of those containers during their lifecycle. tools to manage these things are called **ORCHESTRATORS** and the most common examples are kubernetes and docker swarm . 
 
 
 **Writing a Dockerfile**
@@ -38,3 +38,9 @@ Docker is an open platform for developing, shipping, and running applications. D
 - docker rm : to remove container
 
     (to get help use --help with above commands)
+
+    
+**Docker-Compose :**   
+
+
+
