@@ -76,3 +76,109 @@ Networking Problems :
 
 
 [**For detailed understanding of networking in kubernetes**](https://sookocheff.com/post/kubernetes/understanding-kubernetes-networking-model/)
+
+
+
+
+## GETTING INTO DETAILS :
+
+### KUBERNETES NOTES :
+
+- The Kubernetes Master is a collection of three processes that run on a single node in your cluster, which is designated as the master node. Those processes are: 
+    - kube-apiserver
+    - kube-controller-manager
+    - kube-scheduler.
+
+- Each individual non-master node in your cluster runs two processes:
+    - kubelet, which communicates with the Kubernetes Master.
+    - kube-proxy, a network proxy which reflects Kubernetes networking services on each node.
+
+The basic Kubernetes objects include:
+
+    Pod
+    Service
+    Volume
+    Namespace
+
+Kubernetes also contains higher-level abstractions that rely on Controllers to build upon the basic objects, and provide additional functionality and convenience features. These include:
+
+    Deployment
+    DaemonSet
+    StatefulSet
+    ReplicaSet
+    Job
+
+Kubernetes provides you with:
+
+-   Service discovery and load balancing
+
+        Kubernetes can expose a container using the DNS name or using their own IP address. If traffic to a container is high, Kubernetes is able to load         balance and distribute the network traffic so that the deployment is stable.
+    
+-   Storage orchestration
+
+        Kubernetes allows you to automatically mount a storage system of your choice, such as local storages, public cloud providers, and more.
+        Automated rollouts and rollbacks
+        You can describe the desired state for your deployed containers using Kubernetes, and it can change the actual state to the desired state at a controlled rate. For example, you can automate Kubernetes to create new containers for your deployment, remove existing containers and adopt all their resources to the new container.
+
+-   Automatic bin packing
+
+        You provide Kubernetes with a cluster of nodes that it can use to run containerized tasks. You tell Kubernetes how much CPU and memory (RAM) each container needs. Kubernetes can fit containers onto your nodes to make the best use of your resources.
+    
+-   Self-healing
+
+        Kubernetes restarts containers that fail, replaces containers, kills containers that don’t respond to your user-defined health check, and doesn’t advertise them to clients until they are ready to serve.
+    
+-   Secret and configuration management
+
+        Kubernetes lets you store and manage sensitive information, such as passwords, OAuth tokens, and SSH keys. You can deploy and update secrets and application configuration without rebuilding your container images, and without exposing secrets in your stack configuration.    
+
+**Basic Architecture :** 
+
+[Architecture Daigram ](https://d33wubrfki0l68.cloudfront.net/817bfdd83a524fed7342e77a26df18c87266b8f4/3da7c/images/docs/components-of-kubernetes.png)
+
+
+### Kubernetes Objects :
+
+1. Names :
+-   Each object in your cluster has a Name that is unique for that type of resource. Every Kubernetes object also has a UID that is unique across your whole cluster.
+
+    eg , 
+
+        apiVersion: v1
+        kind: Pod
+        metadata:
+        name: nginx-demo
+        spec:
+        containers:
+        - name: nginx
+            image: nginx:1.7.9
+            ports:
+            - containerPort: 80
+
+2. Namespaces : 
+-   Namespaces are intended for use in environments with many users spread across multiple teams, or projects. Namespaces provide a scope for names. Names of resources need to be unique within a namespace, but not across namespaces. Namespaces can not be nested inside one another and each Kubernetes resource can only be in one namespace.
+
+-   Namespaces are a way to divide cluster resources between multiple users
+
+        To set the namespace for a current request, use the --namespace flag.
+
+-   we can create our own namespace :
+
+        Create a new YAML file called my-namespace.yaml with the contents:
+
+        apiVersion: v1
+        kind: Namespace
+        metadata:
+        name: <insert-namespace-name-here>
+
+        Then run:
+
+        kubectl create -f ./my-namespace.yaml
+
+        Alternatively, you can create namespace using below command:
+
+        kubectl create namespace <insert-namespace-name-here>
+
+-   Delete a namespace with
+
+        kubectl delete namespaces <insert-some-namespace-name>       
