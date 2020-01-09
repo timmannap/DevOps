@@ -182,3 +182,11 @@ Kubernetes provides you with:
 -   Delete a namespace with
 
         kubectl delete namespaces <insert-some-namespace-name>       
+
+
+
+#### Cluster Architecture :
+
+**Nodes**
+
+-   A node is a worker machine in Kubernetes, previously known as a minion. A node may be a VM or physical machine, depending on the cluster. Each node contains the services necessary to run pods and is managed by the master components. The services on a node include the container runtime, kubelet and kube-proxy. 
