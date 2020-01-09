@@ -1,4 +1,4 @@
-# :Hardening the Operating System
+# Hardening the Operating System
 
 These are some of the many things that need to be taken care of in the Operating system of the server where the application is going to be run when in Production.
 
