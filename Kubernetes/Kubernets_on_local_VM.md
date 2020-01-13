@@ -1,5 +1,3 @@
-
-
 # Kubernetes on a locally hosted Cluster of VM
 
 The set up is as follows
@@ -122,6 +120,8 @@ systemctl enable docker
 ---
 
 ### Kubernetes
+
+
 
 
 
