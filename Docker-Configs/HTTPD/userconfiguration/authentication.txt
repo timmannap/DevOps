@@ -1,0 +1,24 @@
+# Authentication and Autherization
+
+# ErrorLog /usr/local/apache2/auth_error.log
+# <Directory "/usr/local/apache2/htdocs/special">
+# 
+#     <RequireAny>
+#         AuthType Basic
+#         AuthName "user"
+#         AuthUserFile /usr/local/apache2/userconfiguration/.htpasswd
+#         AuthGroupFile /usr/local/apache2/userconfiguration/.htgroup
+#         Require user dhinesh 
+#         Require group local
+#     </RequireAny>
+# </Directory>
+# 
+# 
+# 
+# 
+# <Directory "/usr/local/apache2/htdocs">
+# <RequireAll>
+#     Require all granted
+#    Require not ip 192.168.3.82
+# </RequireAll>
+# </Directory>

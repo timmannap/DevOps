@@ -1,0 +1,21 @@
+# This is in case Alpine causes issues. High memory and overhead.
+
+FROM ubuntu:latest
+
+RUN apt-get update \
+  && apt-get install -y python3-pip python3-dev \
+  && cd /usr/local/bin \
+  && ln -s /usr/bin/python3 python \
+  && pip3 install --upgrade pip
+
+ENV NAME bank
+
+COPY bank bank
+WORKDIR /bank
+
+RUN pip install -r requirements.txt
+
+CMD ["python3", "manage.py", "makemigrations"]
+CMD ["python3", "manage.py", "migrate"]
+CMD ["python3", "manage.py", "runserver","0.0.0.0:8000"]
+                                                          
